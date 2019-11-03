@@ -5,6 +5,14 @@ var locY;
 // (delete) or not (create).
 
 function mouse_xy(event, aCvInfo){
+  var pp = document.getElementById("playPause");
+  pp.setAttribute("disabled", null);
+  var s = document.getElementById("stop");
+  s.setAttribute("disabled", null);
+  var rw = document.getElementById("rewind");
+  rw.setAttribute("disabled", null);
+  var ff = document.getElementById("fastForward");
+  ff.setAttribute("disabled", null);
   locX = event.offsetX;
   locY = event.offsetY;
   console.log("locX:", locX, "locY:", locY);
@@ -26,4 +34,10 @@ function mouse_xy(event, aCvInfo){
   }));
   console.log("ma:", ma);
   console.log("pointsEtc.xy.ma[1]:", pointsEtc.xy[ma[1]]);
+  // Setup music file.
+  var newFname = pointsEtc.xy[ma[1]].fname;
+  yearAndFname = pointsEtc.xy[ma[1]].x + "/" + newFname;
+  console.log("yearAndFname:", yearAndFname);
+  // yearAndFname =
+  reset_player();
 }

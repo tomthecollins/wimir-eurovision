@@ -14,6 +14,7 @@
 	<script src="./lib/maia-util_r0.2.12.js"></script>
   <script src="./js/touch_click_audition.js"></script>
   <script src="./js/visual_elements.js"></script>
+  <script src="./js/musical_elements.js"></script>
   <script src="./js/get_feature_data.js"></script>
 
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic" rel="stylesheet">
@@ -34,18 +35,29 @@
 		<div id="explain" class="Explanation">
       <p><a onclick="hide_explanation();">Hide explanation</a></p>
       <p>
-        Blah
+        Select a feature from the drop-down menu below, and then click on dots
+        in the resultant scatterplot to hear the associated song.
+      </p>
+      <p>
+        The first time you run this, it will take a long time. The underlying
+        JSON-formatted feature data needs reshaping to achieve some speedup!
       </p>
     </div>
 
     <div class="Select" style="width: 180px;">
       <select id="selectFeature" onchange="get_feature_data(canvasInfo[0]);">
         <option value="0">Select a feature:</option>
-        <option value="lowlevel,dissonance">
+        <option value="lowlevel,dissonance,dmean">
           Dissonance
         </option>
         <option value="rhythm,danceability">
           Danceability
+        </option>
+        <option value="rhythm,bpm">
+          BPM
+        </option>
+        <option value="lowlevel,spectral_energyband_high,dmean">
+          Spec. enrg. hi.
         </option>
 
       </select>
@@ -54,17 +66,17 @@
 
   <div id="canvasAndControls" class="Content">
     <div class="TransportBar">
-      <div id="playPause" class="Button" onclick="start();" disabled>
+      <div id="playPause" class="Button" onclick="play_pause();" disabled>
         <i id="playPauseIcon" class="fa fa-spinner fa-pulse"></i>
       </div>
-      <div id="stop" class="Button" onclick="stop();" disabled>
+      <div id="stop" class="Button" onclick="Tone.Transport.stop();" disabled>
         <i class="fa fa-stop"></i>
       </div>
-      <div id="zoomIn" class="Button" onclick="zoom('in');">
-        <i id="zoomInIcon" class="fa fa-search-plus"></i>
+      <div id="rewind" class="Button" onclick="rewind();" disabled>
+        <i id="zoomInIcon" class="fa fa-fast-backward"></i>
       </div>
-      <div id="zoomOut" class="Button" onclick="zoom('out');" disabled>
-        <i id="zoomOutIcon" class="fa fa-search-minus"></i>
+      <div id="fastForward" class="Button" onclick="fast_forward();" disabled>
+        <i id="zoomOutIcon" class="fa fa-fast-forward"></i>
       </div>
     </div>
 	</div>
@@ -80,7 +92,7 @@
   var cv = $("<canvas>").prependTo("#canvasAndControls");
   cv.attr("onclick", "mouse_xy(event, canvasInfo[0]);");
   if($(window).height() > 300){
-    cv.height(800);
+    cv.height(600);
   }
   var ctx = cv.get(0).getContext("2d");
   ctx.canvas.width = ctx.canvas.clientWidth;

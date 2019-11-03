@@ -1,4 +1,9 @@
 function get_feature_data(aCvInfo){
+  // Disable and wheel play.
+  var pp = document.getElementById("playPause");
+  var ppi = document.getElementById("playPauseIcon");
+  ppi.setAttribute("class", "fa fa-spinner fa-pulse");
+  pp.setAttribute("disabled", null);
   // Prepare to store requested data.
   pointsEtc.xy = [];
   // What's the feature?
@@ -24,7 +29,7 @@ function get_feature_data(aCvInfo){
       pointsEtc.xy.push({
         "x": fname.slice(0, 4),
         "y": featVal,
-        "fname": fname
+        "fname": data.metadata.tags.file_name
       });
       stuffLoaded++;
     });

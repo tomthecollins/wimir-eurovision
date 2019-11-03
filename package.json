@@ -1,0 +1,23 @@
+{
+  "name": "wimir-eurovision",
+  "version": "0.0.0",
+  "description": "Code for exploratory analysis of Eurovision Song Contest data.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://christiancoulon@bitbucket.org/micmaia/evolusong.git"
+  },
+  "author": "Everybody in the room",
+  "license": "GNU GPL v3",
+  "homepage": "https://github.com/tomthecollins/wimir-eurovision",
+  "dependencies": {
+    "express": "^4.17.1",
+    "socket.io": "^2.3.0",
+    "sqlite3": "^4.1.0",
+    "csvtojson": "^2.0.10"
+  }
+}

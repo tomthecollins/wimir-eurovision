@@ -1,0 +1,766 @@
+/* Extra small devices (phones, less than 768px) */
+@media (max-width: 749px) {
+  #TopBar #Homepage a {
+    font-size: 16px !important; }
+
+  #TopBar #Hamburger {
+    display: initial !important; }
+
+  #Sidebar {
+    display: none;
+    width: 100% !important; }
+
+  iframe {
+    width: 100% !important; }
+}
+/* Small devices (tablets, 750px and up) */
+/* Medium devices (desktops, 992px and up) */
+/* Large devices (large desktops, 1200px and up) */
+
+html, body {
+  padding: 0;
+  margin: 0;
+  height: calc(100% - 4px);
+  font-family: 'Lato', arial, sans-serif;
+  /* font-family: "Inconsolata", monospace; */
+}
+
+#MobileStart {
+  position: fixed; /* keeps it in place if a user scrolls. */
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8); }
+#MobileStart #Button {
+  position: fixed;  /* keeps it in place if a user scrolls. */
+  left: 50%;
+  top: 50%;
+  background-color: #eebf3f;
+  color: #fff;
+  border-radius: 5px;
+  margin-top: -40px;
+  margin-left: -60px;
+  width: 120px;
+  height: 80px;
+  text-align: center;
+  line-height: 80px; }
+#MobileStart #Button:hover {
+  cursor: pointer;
+  background-color: #ecb728;
+  color: white; }
+#MobileStart #Button:hover:active {
+  background-color: #074f66;
+  color: #17baef; }
+
+/**
+ *
+ *  TOP BAR
+ *
+ */
+#TopBar {
+  height: 75px;
+  line-height: 90px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 44px;
+  color: #074f66;
+  width: calc(100% - 15px);
+  padding-left: 15px;
+  white-space: nowrap;
+  background-color: #17baef;
+  position: fixed;
+  z-index: 3;
+}
+#TopBar a {
+  text-decoration: none;
+  color: #074f66;
+}
+#TopBar .highlight {
+  color: #eebf3f;
+}
+
+.Content {
+  position: relative;
+  top: 75px;
+  /* left: 0; */
+  width: 100%;
+  /* margin-bottom: 15px; */
+  background-color: white;
+  text-align: center;
+}
+.Content #Title {
+  height: 50px;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  font-size: 36px;
+  color: #074f66;
+  width: calc(100% - 30px);
+  padding: 30px 15px 30px 15px;
+  margin: 0 0 20px 0;
+  background-color: #f5f5f5;
+}
+.Content #EmptyTitle {
+  height: 5px;
+  background-color: white;
+}
+.Content .Explanation {
+  /* position: relative; */
+  padding: 10px 30px 10px 30px;
+  margin: 0 15px 15px 15px;
+  color: #444;
+  font-size: 16px;
+  line-height: 24px;
+  border-radius: 5px;
+  text-align: left;
+  background-color: #f5f5f5;
+}
+.Content .Form {
+  /* position: relative; */
+  padding: 10px 30px 10px 30px;
+  margin: 0 15px 15px 15px;
+  color: #444;
+  font-size: 16px;
+  line-height: 24px;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #f5f5f5;
+}
+.Content .TransportBar {
+  width: calc(100% - 30px);
+  margin: 10px 0 0 0;
+  color: #444;
+  font-size: 16px;
+  line-height: 24px;
+  border-radius: 5px;
+  text-align: center;
+}
+.Content .Label {
+  /* -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out; */
+  display: inline-block;
+  text-align: center;
+  font-family: 'Montserrat', arial, sans-serif;
+  padding: 8px 16px;
+  margin: 0 0 15px 0;
+  border-radius: 5px;
+  background: #cccccc;
+  border: 1px solid #999999;
+  color: #666666;
+  font-weight: 600;
+}
+.Content .Button {
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  display: inline-block;
+  text-align: center;
+  font-family: 'Montserrat', arial, sans-serif;
+  padding: 8px 16px;
+  margin: 0 0 15px 0;
+  border-radius: 5px;
+  background: #eebf3f;
+  border: 1px solid #eebf3f;
+  color: #fff;
+  font-weight: 600;
+}
+.Content .Button:hover:not([disabled]) {
+  cursor: pointer;
+  background: #ecb728;
+  border: 1px solid #ecb728;
+  color: #fff;
+  /* color: white; */
+  /* background-color: #3833ED; */
+}
+/* Not really sure what this bit is doing! */
+.Content .Button:hover:active:not([disabled]),
+.Content .Content .Button:hover:active.Active {
+  cursor: pointer;
+  color: #17baef;
+  background-color: #074f66;
+  border: 1px solid #17baef; }
+.Content .Button.Toggle.Active {
+  box-sizing: border-box;
+  border: 3px solid black;
+  line-height: 84px;
+  color: black;
+  background-color: white; }
+
+  /* The container must be positioned relative: */
+.Content .Button:disabled,.Button[disabled]{
+  border: 1px solid #999999;
+  background-color: #cccccc;
+  color: #666666;
+}
+
+.Content .Select {
+  display: inline-block;
+  position: relative;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  font-family: 'Montserrat', arial, sans-serif;
+  /* padding: 0 16px; */
+  margin: 0 0 15px 0;
+  border-radius: 5px;
+  background: #eebf3f;
+  border: 1px solid #eebf3f;
+  cursor: pointer;
+ }
+.Content .Select:disabled,.Select[disabled]{
+ border: 1px solid #999999;
+ background-color: #cccccc;
+ color: #666666;
+}
+.Content .Select:hover:not([disabled]) {
+  background: #ecb728;
+  border: 1px solid #ecb728;
+  color: #fff; }
+.Content .Select select {
+  display: none; /*hide original SELECT element: */ }
+.select-selected:not([disabled]) {
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  background: #eebf3f; }
+/* .select-selected:hover { */
+.select-selected:hover:not([disabled]){
+  background: #ecb728;
+  /* border: 1px solid #ecb728; */
+  color: #fff; }
+.select-selected:disabled {
+    border: 1px solid #999999;
+    background-color: #cccccc;
+    color: #666666; }
+/* Style the arrow inside the select element: */
+.select-selected:after {
+  position: absolute;
+  content: "";
+  top: 14px;
+  right: 5px;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent; }
+/* Point the arrow upwards when the select box is open (active): */
+.select-selected.select-arrow-active:after {
+  border-color: transparent transparent #fff transparent;
+  top: 7px; }
+/* style the items (options), including the selected item: */
+.select-items div,.select-selected {
+  position: relative;
+  /* height: 35px; */
+  color: #fff;
+  font-weight: 600;
+  padding: 8px 25px;
+  /* border: 1px solid transparent;
+  border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent; */
+  cursor: pointer; }
+ /* Style items (options): */
+.select-items {
+  position: absolute;
+  background-color: #eebf3f;
+  top: 100%;
+  left: 0;
+  right: 0;
+  border-radius: 5px;
+  z-index: 2; }
+/* Hide the items when the select box is closed: */
+.select-hide {
+  display: none; }
+.select-items div:hover, .same-as-selected {
+  background-color: rgba(0, 0, 0, 0.1); }
+
+.Content .Explanation img {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block; }
+.Content .DiscImg img {
+  max-width: 100px;
+  padding: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block; }
+.Content a {
+  color: #17baef;
+  -webkit-transition: all 0.4s ease-in-out;
+  -moz-transition: all 0.4s ease-in-out;
+  -ms-transition: all 0.4s ease-in-out;
+  -o-transition: all 0.4s ease-in-out;
+  text-decoration: none; }
+.Content a:hover {
+  text-decoration: underline;
+  color: #0e98c5; }
+.Content a:hover:active {
+  color: #074f66; }
+
+.Content .Table {
+  padding: 10px 0 0 0;
+  margin: 0 15px 15px 15px;
+  color: #444;
+  font-size: 16px;
+  line-height: 24px;
+  border-radius: 5px;
+  background-color: #f5f5f5; */
+}
+.Content table {
+  margin: auto;
+}
+
+.Content .Keyboard {
+  height: 200px;
+  width: calc(100% - 10px);
+  /* width: 100%; */
+  position: relative;
+  /* padding: 15px; */
+  border: 5px solid #eebf3f;
+  margin: 0 0 15px 0; }
+
+code {
+  background-color: #ECECEC;
+  color: #333;
+  padding: 1px; }
+
+/* #StepEditBg {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8); }
+#StepEditBg #StepEdit {
+ position: relative;
+ left: 50%; }
+#StepEditBg #StepEdit #Button {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  background-color: #eebf3f;
+  color: #fff;
+  border-radius: 5px;
+  width: 120px;
+  height: 80px;
+  text-align: center;
+  line-height: 80px; }
+#StepEditBg #StepEdit #Button:hover {
+  cursor: pointer;
+  background-color: #ecb728;
+  color: white; }
+#StepEditBg #StepEdit #Button:hover:active {
+  background-color: #074f66;
+  color: #17baef; } */
+
+#Loading {
+  z-index: 100000;
+  position: absolute;
+  background-color: rgba(140, 140, 140, 0.5);
+  width: 100%;
+  height: calc(100% - 37.5px);
+  top: 37.5px;
+  left: 0;
+  opacity: 1;
+  transition: opacity 0.4s; }
+#Loading #Text {
+  color: white;
+  position: absolute;
+  text-align: center;
+  top: 50%;
+  left: 50%;
+  width: 300px;
+  margin-left: -150px;
+  height: 60px;
+  margin-top: -30px;
+  line-height: 60px;
+  font-size: 42px; }
+#Loading.Loaded {
+  pointer-events: none;
+  opacity: 0; }
+
+#appendKeyscapeHere {
+   /* width: 100%; */
+   text-align:center;
+}
+
+/* canvas:not([class=rollEtc]) { */
+/* canvas .blah {
+  display: inline;
+} */
+#canvasAndControls {
+  text-align: center;
+  margin: 0 15px 0 15px;
+}
+#canvasAndControls canvas {
+  display: block;
+  position: relative;
+  width: calc(100% - 30px);
+  height: 200px;
+  margin: 5px 0 0 0;
+  background-color: #404040;
+  border-radius: 5px;
+}
+
+#dropZone {
+  display: block;
+  position: relative;
+  width: calc(100% - 30px);
+  height: 200px;
+  margin: 5px 15px 5px 15px;
+  text-align: center;
+  color: white;
+  background-color: #404040;
+  border-radius: 5px;
+}
+
+
+/* ======= Contact Section ======= */
+.Content .contact {
+  padding: 80px 0;
+  background: #17baef;
+  color: #fff;
+}
+.Content .contact .contact-inner {
+  max-width: 760px;
+  margin: 0 auto;
+}
+.Content .contact .title {
+  color: #074f66;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+.Content .contact .intro {
+  margin-bottom: 60px;
+}
+.Content .contact a {
+  color: #074f66;
+}
+.Content .contact a:hover {
+  color: #042a36;
+}
+.Content .contact .author-message {
+  position: relative;
+  margin-bottom: 60px;
+}
+.Content .contact .author-message .profile {
+  position: absolute;
+  left: 30px;
+  top: 15px;
+  width: 100px;
+  height: 100px;
+}
+.Content .contact .author-message .profile img {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+}
+.Content .contact .author-message .speech-bubble {
+  margin-left: 155px;
+  background: #10b2e7;
+  color: #074f66;
+  padding: 30px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  position: relative;
+  text-align: left;
+}
+.Content .contact .author-message .speech-bubble .sub-title {
+  color: #074f66;
+  font-size: 16px;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+.Content .contact .author-message .speech-bubble a {
+  color: #fff;
+}
+.Content .contact .author-message .speech-bubble:after {
+  position: absolute;
+  left: -10px;
+  top: 60px;
+  content: "";
+  display: inline-block;
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-right: 10px solid #10b2e7;
+}
+.Content .contact .info .sub-title {
+  color: #0e98c5;
+  margin-bottom: 30px;
+  margin-top: 0;
+}
+.Content .contact .social-icons {
+  list-style: none;
+  padding: 10px 0;
+  margin-bottom: 0;
+  display: inline-block;
+  margin: 0 auto;
+}
+.Content .contact .social-icons li {
+  float: left;
+  margin-left: 10px;
+}
+.Content .contact .social-icons li.last {
+  /* margin-right: 0; */
+}
+.Content .contact .social-icons a {
+  display: inline-block;
+  background: #0c86ae;
+  width: 48px;
+  height: 36px;
+  text-align: center;
+  padding-top: 11px;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  -o-border-radius: 50%;
+  border-radius: 50%;
+  -moz-background-clip: padding;
+  -webkit-background-clip: padding-box;
+  background-clip: padding-box;
+  margin-right: 10px;
+  float: left;
+}
+.Content .contact .social-icons a:hover {
+  background: #e6ad14;
+}
+.Content .contact .social-icons a .fa {
+  color: #fff;
+}
+.Content .contact .social-icons a .fa:before {
+  font-size: 26px;
+  text-align: center;
+  padding: 0;
+}
+
+/* ======= Footer ======= */
+.footer {
+  padding: 15px 0;
+  background: #042a36;
+  color: #fff;
+}
+.footer .copyright {
+  -webkit-opacity: 0.8;
+  -moz-opacity: 0.8;
+  opacity: 0.8;
+}
+
+
+/* Unused */
+.Content .DragContainer {
+  margin-left: 3px;
+  margin-top: 3px;
+  margin-bottom: 15px;
+  width: calc(100% - 3px);
+  height: 400px;
+  position: relative;
+  color: white; }
+.Content .Slider.x {
+  position: relative;
+  height: 94px;
+  width: 100%;
+  margin-top: 3px; }
+.Content .Slider.x .Axis {
+  top: 50%;
+  margin-top: -1.5px; }
+.Content .Slider.y {
+  position: relative;
+  width: 94px;
+  height: 400px; }
+.Content .Slider.y .Axis {
+  left: 50%;
+  margin-left: -1.5px; }
+.Content .Dragger {
+  width: 90px;
+  height: 90px;
+  position: absolute;
+  background-color: black;
+  border-radius: 50%;
+  z-index: 1;
+  margin-top: -2px;
+  border: 2px solid white;
+  cursor: -webkit-grab; }
+.Content .Dragger #Name {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  text-align: center;
+  font-size: 12px;
+  line-height: 90px;
+  color: white; }
+.Content .Dragger:hover {
+  background-color: #3833ED;
+  color: white; }
+.Content .Dragger.is-pointer-down {
+  cursor: -webkit-grabbing;
+  background-color: #074f66; }
+.Content .Dragger.is-pointer-down #Name {
+  color: #1EDF3E; }
+.Content .Axis {
+  position: absolute;
+  background-color: black;
+  width: 3px;
+  height: 3px;
+  top: 3px;
+  left: 3px;
+  border-radius: 1.5px;
+  z-index: 0; }
+.Content #xAxis {
+  width: calc(100% - 6px); }
+.Content #yAxis {
+  height: calc(100% - 6px); }
+.Content .Transport {
+  width: 100%;
+  height: 30px;
+  background-color: black;
+  line-height: 30px;
+  color: white;
+  border-radius: 10px;
+  margin-top: 3px;
+  position: relative; }
+.Content .Transport #Position {
+  width: 70px;
+  left: 50%;
+  margin-left: -35px;
+  text-align: left;
+  height: 100%;
+  position: absolute;
+  color: white; }
+
+/**
+ *
+ *  Example Home
+ *
+ */
+.Content .Example {
+  height: calc(100% - 44px);
+  width: calc(100% - 6px);
+  margin-bottom: 0;
+  overflow: hidden;
+  left: 3px;
+}
+.Content .Example #Sidebar {
+  background-color: white;
+  width: 280px;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: calc(100% - 3px);
+  border-right: 3px solid black;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  z-index: 1;
+}
+.Content .Example #Sidebar .Category {
+  background-color: black;
+  color: white;
+  width: calc(100% - 6px);
+  height: 25px;
+  line-height: 25px;
+  padding-left: 5px;
+  font-weight: 900;
+}
+.Content .Example #Sidebar .Item {
+  line-height: 22px;
+  padding-left: 15px;
+  height: 22px;
+  width: 100%;
+}
+.Content .Example #Sidebar .Item:last-child {
+  margin-bottom: 10px;
+}
+.Content .Example #Sidebar.Open {
+  display: initial !important;
+}
+.Content .Example iframe {
+  width: calc(100% - 286px);
+  border: 0;
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  z-index: 0;
+}
+.Content .Example #Source {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 80px;
+  height: 40px;
+  background-color: black;
+  color: white;
+  opacity: 0.5;
+  cursor: pointer;
+  z-index: 0;
+}
+.Content .Example #Source:before {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  content: "source";
+  text-align: center;
+  line-height: 40px;
+}
+.Content .Example #Source:hover {
+  opacity: 1;
+}
+.Content .Example #Source:hover:active {
+  background-color: white;
+  color: black;
+}
+
+/* #TopBar #Examples {
+  right: 10px;
+  top: 0;
+  height: 35px;
+  line-height: 35px;
+  position: absolute;
+  width: 100px;
+  text-align: left; }
+#TopBar #Examples a {
+  position: absolute;
+  font-size: 14px;
+  color: white;
+  text-transform: none;
+  text-decoration: none; }
+#TopBar #Hamburger {
+  display: none;
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  right: 10px;
+  top: 3.5px;
+  cursor: pointer; }
+#TopBar #Hamburger span {
+  margin-top: 6px;
+  position: absolute;
+  width: 80%;
+  height: 3px;
+  left: 10%;
+  background-color: white; }
+#TopBar #Hamburger span:nth-child(0) {
+  top: 0%; }
+#TopBar #Hamburger span:nth-child(1) {
+  top: 25%; }
+#TopBar #Hamburger span:nth-child(2) {
+  top: 50%; }
+#TopBar #Hamburger:hover:active span {
+  background-color: #17baef; } */

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+	<title>Keyscape</title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+
+  <script src="./lib/Tone_r13.min.js"></script>
+	<script src="./lib/jquery.min.js"></script>
+	<script src="./lib/StartAudioContext.js"></script>
+	<script src="./lib/Interface.js"></script>
+	<script src="./lib/maia-util_r0.2.12.js"></script>
+  <script src="./js/touch_click_edit.js"></script>
+  <script src="./js/visual_elements.js"></script>
+
+
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic" rel="stylesheet">
+  <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="./lib/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" type="text/css" href="./lib/examples.css">
+  <link rel="stylesheet" type="text/css" href="./lib/custom_fader.css">
+  <script src="./lib/custom_select.js"></script>
+</head>
+<body>
+  <div id="TopBar">
+    <a href=""><i class="fa fa-home"></i>&nbsp;</a>
+    <!-- <a href="./../index.html">Back to <span class="highlight">main menu</span></a> -->
+  </div>
+
+  <div class="Content">
+		<div id="Title">Eurovision songs features explorer (ESFE)</div>
+		<div id="explain" class="Explanation">
+      <p><a onclick="hide_explanation();">Hide explanation</a></p>
+      <p>
+        Blah
+      </p>
+    </div>
+	</div>
+
+  <div id="canvasAndControls" class="Content">
+    <div class="TransportBar">
+      <div id="playPause" class="Button" onclick="start();" disabled>
+        <i id="playPauseIcon" class="fa fa-spinner fa-pulse"></i>
+      </div>
+      <div id="stop" class="Button" onclick="stop();" disabled>
+        <i class="fa fa-stop"></i>
+      </div>
+      <div id="zoomIn" class="Button" onclick="zoom('in');">
+        <i id="zoomInIcon" class="fa fa-search-plus"></i>
+      </div>
+      <div id="zoomOut" class="Button" onclick="zoom('out');" disabled>
+        <i id="zoomOutIcon" class="fa fa-search-minus"></i>
+      </div>
+    </div>
+	</div>
+
+
+
+  <script type="text/javascript">
+  // Set up canvas where plot will be drawn.
+  var cv = $("<canvas>").prependTo("#canvasAndControls");
+  cv.attr("onclick", "mouse_xy(event, canvasInfo[0]);");
+  if($(window).height() > 800){
+    cv.height(400);
+  }
+  var ctx = cv.get(0).getContext("2d");
+  ctx.canvas.width = ctx.canvas.clientWidth;
+  ctx.canvas.height = ctx.canvas.clientHeight;
+
+
+  </script>
+
+  <div class="Content">
+    <footer class="footer">
+      <div class="container text-center">
+        <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can check out other license options via our website: themes.3rdwavemedia.com */-->
+        <small class="copyright">
+          Copyright <script>document.write(new Date().getFullYear());</script> Everybody in the room.
+          CSS design adapted from a theme by
+          <a href="http://themes.3rdwavemedia.com" target="_blank">Xiaoying Riley</a></small>.
+      </div><!--//container-->
+    </footer><!--//footer-->
+  </div>
+
+</body>
+</html>

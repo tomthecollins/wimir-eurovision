@@ -1,0 +1,41 @@
+# OS-generated files
+.DS_Store
+
+**/data.db
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+node_modules/
+jspm_packages/
+
+# Sound files
+*.wav
+*.mp3
+*.m4a
+*.aup
+*_studio_data/
+
+# MIDI files
+*.mid
+
+# Image files
+*.png
+*.jpg
+
+# Music data files
+# *.json
+
+# Other data files
+*.db
+*.pdf
+
+# This next one is out of date.
+# User-generated data
+ex/evolusong/private/
+ex/evolusong/public/

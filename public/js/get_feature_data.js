@@ -1,6 +1,5 @@
-function get_feature_data(){
+function get_feature_data(aCvInfo){
   // Prepare to store requested data.
-  var pointsEtc = {};
   pointsEtc.xy = [];
   // What's the feature?
   var featStr = document.getElementById("selectFeature").value;
@@ -35,8 +34,26 @@ function get_feature_data(){
     // console.log("stuffLoaded:", stuffLoaded);
     if (stuffLoaded == jsonFnames.length){
       console.log("pointsEtc:", pointsEtc);
+      var xmin = mu.min_argmin(pointsEtc.xy.map(function(pair){
+        return pair.x;
+      }));
+      aCvInfo.minX = xmin[0];
+      var xmax = mu.max_argmax(pointsEtc.xy.map(function(pair){
+        return pair.x;
+      }));
+      aCvInfo.maxX = xmax[0];
+      var ymin = mu.min_argmin(pointsEtc.xy.map(function(pair){
+        return pair.y;
+      }));
+      aCvInfo.minY = ymin[0];
+      var ymax = mu.max_argmax(pointsEtc.xy.map(function(pair){
+        return pair.y;
+      }));
+      aCvInfo.maxY = ymax[0];
+      aCvInfo.yLab = featArr[featArr.length - 1] + "... →";
+      console.log("aCvInfo:", aCvInfo);
       // Redo plot here!
-      // ...
+      clear_and_update_plot(aCvInfo);
       clearInterval(myTimer);
     }
   }, 500);

@@ -39,8 +39,8 @@
     </div>
 
     <div class="Select" style="width: 180px;">
-      <select id="selectFeature" onchange="get_feature_data();">
-        <!-- <option value="0">Choose to listen or play:</option> -->
+      <select id="selectFeature" onchange="get_feature_data(canvasInfo[0]);">
+        <option value="0">Select a feature:</option>
         <option value="lowlevel,dissonance">
           Dissonance
         </option>
@@ -73,15 +73,31 @@
 
   <script type="text/javascript">
   custom_select();
+  // Setup some global variables.
+  var pointsEtc = {};
   // Set up canvas where plot will be drawn.
+  console.log("$(window).height():", $(window).height());
   var cv = $("<canvas>").prependTo("#canvasAndControls");
   cv.attr("onclick", "mouse_xy(event, canvasInfo[0]);");
-  if($(window).height() > 800){
-    cv.height(400);
+  if($(window).height() > 300){
+    cv.height(800);
   }
   var ctx = cv.get(0).getContext("2d");
   ctx.canvas.width = ctx.canvas.clientWidth;
   ctx.canvas.height = ctx.canvas.clientHeight;
+  var canvasInfo = [ // Useful for passing into draw_notes().
+    {
+      context: ctx,
+      minX: 0,
+      maxX: 100,
+      minY: 0,
+      maxY: 100,
+      xLab: "year →",
+      yLab: "some feature... →",
+      wOffset: 40,
+      hOffset: 5
+    }
+  ];
 
   console.log("jsonFnames.length:", jsonFnames.length);
   </script>

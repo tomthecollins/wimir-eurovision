@@ -34,6 +34,7 @@ jspm_packages/
 # Other data files
 *.db
 *.pdf
+*.csv
 
 # This next one is out of date.
 # User-generated data

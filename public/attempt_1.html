@@ -2,19 +2,19 @@
 <html>
 <head>
   <meta charset="utf-8">
-	<title>Keyscape</title>
+	<title>WiMIR Eurovision</title>
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
-
-  <script src="./lib/Tone_r13.min.js"></script>
+  <script src="./src/json_fnames.js"></script>
+	<script src="./lib/Tone_r13.min.js"></script>
 	<script src="./lib/jquery.min.js"></script>
 	<script src="./lib/StartAudioContext.js"></script>
 	<script src="./lib/Interface.js"></script>
 	<script src="./lib/maia-util_r0.2.12.js"></script>
-  <script src="./js/touch_click_edit.js"></script>
+  <script src="./js/touch_click_audition.js"></script>
   <script src="./js/visual_elements.js"></script>
-
+  <script src="./js/get_feature_data.js"></script>
 
   <link href="https://fonts.googleapis.com/css?family=Lato:300,400,300italic,400italic" rel="stylesheet">
   <link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
@@ -36,6 +36,19 @@
       <p>
         Blah
       </p>
+    </div>
+
+    <div class="Select" style="width: 180px;">
+      <select id="selectFeature" onchange="get_feature_data();">
+        <!-- <option value="0">Choose to listen or play:</option> -->
+        <option value="lowlevel,dissonance">
+          Dissonance
+        </option>
+        <option value="rhythm,danceability">
+          Danceability
+        </option>
+
+      </select>
     </div>
 	</div>
 
@@ -59,6 +72,7 @@
 
 
   <script type="text/javascript">
+  custom_select();
   // Set up canvas where plot will be drawn.
   var cv = $("<canvas>").prependTo("#canvasAndControls");
   cv.attr("onclick", "mouse_xy(event, canvasInfo[0]);");
@@ -69,7 +83,7 @@
   ctx.canvas.width = ctx.canvas.clientWidth;
   ctx.canvas.height = ctx.canvas.clientHeight;
 
-
+  console.log("jsonFnames.length:", jsonFnames.length);
   </script>
 
   <div class="Content">

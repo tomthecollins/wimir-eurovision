@@ -10,7 +10,6 @@ function draw_axes_and_grid(aCvInfo){
 
 }
 
-// Draw notes at appropriate times.
 function clear_and_update_plot(aCvInfo){
   aCvInfo.context.clearRect(0, 0, aCvInfo.context.canvas.width, aCvInfo.context.canvas.height);
   draw_axes_and_grid(aCvInfo);
@@ -19,9 +18,9 @@ function clear_and_update_plot(aCvInfo){
       "fill": "white"
     }
   }
-  wMultiplier = (aCvInfo.context.canvas.width - aCvInfo.wOffset)
+  var wMultiplier = (aCvInfo.context.canvas.width - aCvInfo.wOffset)
   /(aCvInfo.maxX - aCvInfo.minX);
-  hMultiplier = (aCvInfo.context.canvas.height - aCvInfo.hOffset)
+  var hMultiplier = (aCvInfo.context.canvas.height - aCvInfo.hOffset)
   /(aCvInfo.maxY - aCvInfo.minY);
 
   // Iterate over points and render to canvas.
@@ -38,4 +37,16 @@ function clear_and_update_plot(aCvInfo){
     aCvInfo.context.arc(xLoc, yLoc, r, 0, 2*Math.PI);
     aCvInfo.context.fill();
   });
+}
+
+function hide_explanation(){
+  var x = document.getElementById("explain");
+  x.innerHTML = '<p><a onclick="show_explanation();">Show explanation</a></p>';
+  return;
+}
+
+function show_explanation(){
+  var x = document.getElementById("explain");
+  x.innerHTML = '<p><a onclick="hide_explanation();">Hide explanation</a></p><p>Select a feature from the drop-down menu below, and then click on a dot in the resultant scatterplot to load the associated MP3 file. There are play etc. controls below the plot for listening to the song, which can be useful as some songs start with applause or silence.</p>';
+  return;
 }

@@ -5,6 +5,9 @@ var locY;
 // (delete) or not (create).
 
 function mouse_xy(event, aCvInfo){
+  if (Tone.Transport.state !== "stopped"){
+    Tone.Transport.stop();
+  }
   var pp = document.getElementById("playPause");
   pp.setAttribute("disabled", null);
   var s = document.getElementById("stop");
@@ -33,11 +36,33 @@ function mouse_xy(event, aCvInfo){
     );
   }));
   console.log("ma:", ma);
-  console.log("pointsEtc.xy.ma[1]:", pointsEtc.xy[ma[1]]);
+  var p = pointsEtc.xy[ma[1]];
+  console.log("p:", p);
+  // Convert them back to draw a nice golden dot!
+  var wMultiplier = (aCvInfo.context.canvas.width - aCvInfo.wOffset)
+  /(aCvInfo.maxX - aCvInfo.minX);
+  var hMultiplier = (aCvInfo.context.canvas.height - aCvInfo.hOffset)
+  /(aCvInfo.maxY - aCvInfo.minY);
+  var xLoc = wMultiplier*(p.x - aCvInfo.minX) + aCvInfo.wOffset;
+  var yLoc = hMultiplier*(aCvInfo.maxY - p.y) + aCvInfo.hOffset;
+  // Highlight the clicked dot.
+  clear_and_update_plot(aCvInfo);
+  aCvInfo.context.fillStyle = "#eebf3f";
+  aCvInfo.context.beginPath();
+  aCvInfo.context.arc(xLoc, yLoc, 6, 0, 2*Math.PI);
+  aCvInfo.context.fill();
+  // Write the year and country.
+  ctx.font = "24px Verdana";
+  ctx.textAlign = "center";
+  ctx.fillText(
+    p.fname,
+    aCvInfo.context.canvas.width/2,
+    aCvInfo.context.canvas.height/2
+  );
   // Setup music file.
-  var newFname = pointsEtc.xy[ma[1]].fname;
-  yearAndFname = pointsEtc.xy[ma[1]].x + "/" + newFname;
-  console.log("yearAndFname:", yearAndFname);
+  var newFname = p.fname;
+  yearAndFname = p.x + "/" + newFname;
+  // alert("yearAndFname: " + yearAndFname);
   // yearAndFname =
   reset_player();
 }

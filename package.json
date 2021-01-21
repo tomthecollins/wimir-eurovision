@@ -16,7 +16,7 @@
   "homepage": "https://github.com/tomthecollins/wimir-eurovision",
   "dependencies": {
     "express": "^4.17.1",
-    "socket.io": "^2.3.0",
+    "socket.io": "^2.4.0",
     "sqlite3": "^4.1.0",
     "csvtojson": "^2.0.10"
   }
